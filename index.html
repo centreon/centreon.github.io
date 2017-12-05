@@ -183,7 +183,7 @@
       success: function (response) {
         var resp = JSON.parse(response)
         if (resp.ok) {
-          $( "#errorMessage" ).text('Now check your email!');
+          $( "#Message" ).text('Now check your email!');
         }
         else if (resp.error == 'already_in_team') {
           $( "#Message" ).html("You've already joined this team! Please log in at <a href=\"" + SLACK_TEAM_URL + "\">" + SLACK_TEAM_URL + "</a>");
@@ -192,6 +192,7 @@
           $( "#Message" ).html("You're already invited! Please check your email.");
         }
         else {
+          $( "#Message" ).text('')
           $( "#errorMessage" ).text("Error submitting '");
         }
       }
@@ -227,12 +228,10 @@
         $.ajax({
           data: JSON.stringify(json),
           error: function (xhr, errStatus) {
-            if (xhr.status !== 0) {
-              console.log('ERROR:' + JSON.stringify(xhr));
-              $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" )
-              $( "#Message" ).text('')
-              $( "#errorMessage" ).text( "Error has occurred!")
-            }
+            console.log('ERROR:' + JSON.stringify(xhr));
+            $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" )
+            $( "#Message" ).text('')
+            $( "#errorMessage" ).text( "Error has occurred!")
           }
         });
       }
