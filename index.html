@@ -38,7 +38,7 @@
             margin: 8px 0;
             font-weight: 300;
         }
-        
+
         .leftContainer h1:after {
             position: absolute;
             content: 'under construction';
@@ -227,10 +227,12 @@
         $.ajax({
           data: JSON.stringify(json),
           error: function (xhr, errStatus) {
-            console.log('ERROR:' + JSON.stringify(xhr));
-            $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" )
-            $( "#Message" ).text('')
-            $( "#errorMessage" ).text( "Error has occurred!")
+            if (errStatus !== 0) {
+              console.log('ERROR:' + JSON.stringify(xhr));
+              $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" )
+              $( "#Message" ).text('')
+              $( "#errorMessage" ).text( "Error has occurred!")
+            }
           }
         });
       }
