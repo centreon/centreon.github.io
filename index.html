@@ -227,7 +227,7 @@
         $.ajax({
           data: JSON.stringify(json),
           error: function (xhr, errStatus) {
-            if (errStatus !== 0) {
+            if (xhr.status !== 0) {
               console.log('ERROR:' + JSON.stringify(xhr));
               $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" )
               $( "#Message" ).text('')
