@@ -187,16 +187,19 @@
       success: function (response) {
         var resp = JSON.parse(response)
         if (resp.ok) {
+          $( "#errorMessage" ).text('');
           $( "#Message" ).text('Now check your email!');
         }
         else if (resp.error == 'already_in_team') {
+          $( "#errorMessage" ).text('');
           $( "#Message" ).html("You've already joined this team! Please log in at <a href=\"" + SLACK_TEAM_URL + "\">" + SLACK_TEAM_URL + "</a>");
         }
         else if (resp.error == 'already_invited') {
+          $( "#errorMessage" ).text('');
           $( "#Message" ).html("You're already invited! Please check your email.");
         }
         else {
-          $( "#Message" ).text('')
+          $( "#Message" ).text('');
           $( "#errorMessage" ).text("Error submitting '");
         }
       }
@@ -214,6 +217,7 @@
       var email = $( "#inputEmail" ).val()
       // check value is not empty
       if (email == '' || !validEmail(email) ) {
+        $( "#Message" ).text('');
         $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" );
         $( "#errorMessage" ).text( "This " + email + " doesn't look like a valid email, please try again...");
       }
@@ -229,6 +233,7 @@
           json.channel = SLACK_CHANNEL_IDS
         }
         $( "#Message" ).text('Sending...');
+        $( "#errorMessage" ).text('');
         $.ajax({
           data: JSON.stringify(json),
           error: function (xhr, errStatus) {
