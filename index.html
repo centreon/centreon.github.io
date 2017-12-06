@@ -103,8 +103,12 @@
             top: 68%;
             right: 0;
         }
+        #Message {
+            left: 0;
+        }
         .social {
             text-align: right;
+            margin-top: 68px;
         }
         .social .imgContainer {
             position: relative;
@@ -210,7 +214,7 @@
       // check value is not empty
       if (email == '' || !validEmail(email) ) {
         $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" );
-        $( "#errorMessage" ).text( "This '" + email + "' doesn't look like a valid email, please try again...");
+        $( "#errorMessage" ).text( "This " + email + " doesn't look like a valid email, please try again...");
       }
       /*
        * TODO check value looks like an email address
