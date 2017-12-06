@@ -217,8 +217,8 @@
       var email = $( "#inputEmail" ).val()
       // check value is not empty
       if (email == '' || !validEmail(email) ) {
-        $( "#Message" ).text('');
         $( "#inputEmail" ).attr( "style", "border: 2px solid #e00b3d" );
+        $( "#Message" ).text( " " );
         $( "#errorMessage" ).text( "This " + email + " doesn't look like a valid email, please try again...");
       }
       /*
