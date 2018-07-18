@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Prepare - pre-production') {
       when {
-        changeRequest target 'production'
+        changeRequest target: 'production'
       }
       steps {
         sh 'apk add --update python py-pip'
@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Deploy - pre-production') {
       when {
-        changeRequest target 'production'
+        changeRequest target: 'production'
       }
       steps {
         sh 'aws s3 sync --delete --acl public-read public s3://centreon-labs/${BRANCH_NAME}'
