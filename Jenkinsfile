@@ -13,7 +13,9 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
+        sh 'apk update'
         sh 'apk add --update python py-pip'
+        sh 'apk add --update build-base'
       }
     }
     stage('Prepare - pre-production') {
