@@ -2,7 +2,6 @@ pipeline {
   agent {
     docker {
       image 'node:8-alpine'
-      args '-u root:sudo'
     }
   }
 
@@ -13,7 +12,8 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        sh 'apk add --update python py-pip'
+        sh 'id'
+        // sh 'apk add --update python py-pip'
       }
     }
     stage('Prepare - pre-production') {
