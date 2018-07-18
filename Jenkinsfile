@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:8-alpine'
+      image 'node:8'
       args '-u root:node'
     }
   }
@@ -11,18 +11,12 @@ pipeline {
   }
 
   stages {
-    stage('Prepare') {
-      steps {
-        sh 'apk update'
-        sh 'apk add --update python py-pip'
-        sh 'apk add --update build-base'
-      }
-    }
     stage('Prepare - pre-production') {
       when {
         changeRequest target: 'production'
       }
       steps {
+        sh 'apt-get install -y python-pip'
         sh 'pip install awscli --upgrade --user'
       }
     }
