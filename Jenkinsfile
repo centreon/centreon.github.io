@@ -8,12 +8,16 @@ pipeline {
   }
 
   stages {
+    stage('Prepare') {
+      steps {
+        sh 'apk add --update python py-pip'
+      }
+    }
     stage('Prepare - pre-production') {
       when {
         changeRequest target: 'production'
       }
       steps {
-        sh 'apk add --update python py-pip'
         sh 'pip install awscli --upgrade --user'
       }
     }
