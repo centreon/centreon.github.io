@@ -18,7 +18,7 @@ class CategoryTemplate extends React.Component {
                 key={idx} />
             )
           })
-          : null
+          : <div>No post</div>
         }
       </React.Fragment>
     )

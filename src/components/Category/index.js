@@ -22,6 +22,7 @@ const styles = theme => ({
     }
   },
   text: {
+    marginLeft: theme.spacing.unit,
     fontSize: 12,
     lineHeight: '24px'
   }

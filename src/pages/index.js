@@ -32,6 +32,9 @@ class Index extends React.Component {
               key={idx} />
           )
         })}
+        {data.posts.edges.length === 0
+          ? <div>No post</div>
+          : null}
       </React.Fragment>
     )
   }

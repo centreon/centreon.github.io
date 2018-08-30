@@ -11,7 +11,8 @@ import CategoryContext from '../../context/Category'
 
 const styles = theme => ({
   content: {
-    fontFamily: theme.typography.fontFamily,
+    ...theme.typography.body1,
+    fontSize: '1.2rem',
     marginTop: theme.spacing.unit * 8
   },
   mobileContent: {

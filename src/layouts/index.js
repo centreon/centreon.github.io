@@ -7,7 +7,6 @@ import Helmet from 'react-helmet'
 import { Motion, spring } from 'react-motion'
 
 import {
-  createMuiTheme,
   MuiThemeProvider,
   withStyles
 } from '@material-ui/core/styles'
@@ -16,12 +15,13 @@ import Hidden from '@material-ui/core/Hidden'
 
 import 'typeface-roboto'
 
+import 'prismjs/themes/prism-solarizedlight.css'
+
+import getPageContext from '../getPageContext'
 import CategoryContext from '../context/Category'
 import Header from '../components/Header'
 import SocialButton from '../components/SocialButton'
 import Footer from '../components/Footer'
-
-const theme = createMuiTheme()
 
 const styles = theme => ({
   root: {
@@ -60,6 +60,20 @@ class Layout extends React.Component {
     headerClose: false
   }
 
+  constructor (props) {
+    super(props)
+
+    this.pageContext = this.props.pageContext || getPageContext()
+  }
+
+  componentDidMount () {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#server-side-jss')
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles)
+    }
+  }
+
   handleChangeHeaderHeight = (close) => {
     this.setState({
       headerClose: close
@@ -68,9 +82,12 @@ class Layout extends React.Component {
 
   render () {
     const { data, classes, children } = this.props
+    const { theme, sheetsManager } = this.pageContext
 
     return (
-      <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider
+        theme={theme}
+        sheetsManager={sheetsManager}>
         <CssBaseline />
         <Helmet title={data.site.siteMetadata.title}>
           <html lang='en' />

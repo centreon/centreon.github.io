@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "front",
+    "display": "Frontend",
+    "icon": "Frontend",
+    "inMenu": true
+  },
+  {
+    "slug": "storage",
+    "display": "Storage",
+    "icon": "Storage",
+    "inMenu": true
+  },
+  {
+    "slug": "not-visible",
+    "display": "Not visible",
+    "icon": "Storage",
+    "inMenu": false
+  },
+  {
+    "slug": "empty",
+    "display": "Empty",
+    "icon": "Empty",
+    "inMenu": false
+  }
+]

@@ -64,7 +64,7 @@ class Calendar extends React.Component {
                 desc={cal.desc} />
             })
           }
-          {events.length
+          {events.length > 2
             ? <div className={classes.divider}>More Event</div>
             : null}
           <div className={classes.extraDate}>

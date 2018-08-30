@@ -139,22 +139,26 @@ class Header extends React.Component {
   static getDerivedStateFromProps (newProps, oldState) {
     const state = {...oldState}
 
-    if (Header.oldLocation === location.pathname) {
+    if (typeof location !== 'undefined' &&
+      Header.oldLocation === location.pathname) {
       return state
     }
 
     state.extraHidden = true
     state.menuOpen = false
 
-    Header.routeWithExtra.map((route) => {
-      const path = withPrefix(route.path)
+    if (typeof location !== 'undefined') {
+      Header.routeWithExtra.map((route) => {
+        const path = withPrefix(route.path)
 
-      if (route.exact && path === location.pathname) {
-        state.extraHidden = false
-      } else if (location.pathname.match(new RegExp(`^${path.replace('/', '\\/')}/`))) {
-        state.extraHidden = false
-      }
-    })
+        if (route.exact && path === location.pathname) {
+          state.extraHidden = false
+        } else if (location.pathname
+            .match(new RegExp(`^${path.replace('/', '\\/')}/`))) {
+          state.extraHidden = false
+        }
+      })
+    }
 
     return state
   }
@@ -168,7 +172,7 @@ class Header extends React.Component {
 
   componentDidMount () {
     setTimeout(() => {
-      this.props.onChangeHeight(false)
+      this.props.onChangeHeight(this.state.extraHidden)
     })
     Header.oldLocation = location.pathname
 
@@ -185,12 +189,7 @@ class Header extends React.Component {
         extraHidden: true
       })
       this.props.onChangeHeight(true)
-    } /* else {
-      this.setState({
-        extraHidden: false
-      })
-      this.props.onChangeHeight(false)
-    } */
+    }
   }
 
   toggleMenu = () => {

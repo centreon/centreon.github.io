@@ -1,24 +1,49 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import EmailValidator from 'email-validator'
+import classnames from 'classnames'
+import compose from 'recompose/compose'
 
 import { withStyles } from '@material-ui/core/styles'
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import MuiTextfield from '@material-ui/core/Textfield'
 import MuiTypography from '@material-ui/core/Typography'
 import MuiCheckbox from '@material-ui/core/Checkbox'
 import MuiButton from '@material-ui/core/Button'
+
+import SlackIcon from '../components/SocialButton/Network/Slack'
 
 const styles = theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     width: '70%',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: theme.spacing.unit * 2
+  },
+  rootDesktop: {
+    width: '30%',
+    padding: theme.spacing.unit * 2,
+    backgroundColor: '#fff',
+    marginTop: 0
   },
   title: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginBottom: theme.spacing.unit * 2
+  },
+  titleIcon: {
+    marginRight: theme.spacing.unit
+  },
+  titleText: {
     ...theme.typography.title,
     color: '#009FDF',
-    alignSelf: 'center',
+    fontSize: 22,
+    lineHeight: '24px'
+  },
+  description: {
+    fontSize: '1rem',
     marginBottom: theme.spacing.unit
   },
   validated: {
@@ -82,14 +107,28 @@ class RegisterSlack extends React.Component {
   }
 
   render () {
-    const { classes } = this.props
+    const { classes, width } = this.props
 
     return (
       <form
         noValidate
         onSubmit={this.handleSendInvitation}
-        className={classes.root}>
-        <div className={classes.title}>Register to slack</div>
+        className={classnames(
+          classes.root,
+          {[classes.rootDesktop]: isWidthUp('lg', width)}
+        )}>
+        <div className={classes.title}>
+          <SlackIcon className={classes.titleIcon} />
+          <div className={classes.titleText}>
+            Register to Slack
+          </div>
+        </div>
+        <MuiTypography variant='body1' className={classes.description}>
+          On the Centreon Community Slack, you obtain help from experienced users and help others with what you have learned.
+        </MuiTypography>
+        <MuiTypography variant='body1' className={classes.description}>
+          You can propose fixes and enhanced, or discuss about monitoring and your favorite solution Centreon.
+        </MuiTypography>
         <MuiTextfield
           label='Email'
           placeholder='Email'
@@ -126,4 +165,7 @@ class RegisterSlack extends React.Component {
   }
 }
 
-export default withStyles(styles)(RegisterSlack)
+export default compose(
+  withStyles(styles),
+  withWidth()
+)(RegisterSlack)
