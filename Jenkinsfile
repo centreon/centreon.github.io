@@ -31,6 +31,21 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm install'
+      }
+    }
+    stage('Build - preproduction') {
+      when {
+        changeRequest target: 'production'
+      }
+      steps {
+        sh 'export GATSBY_PREFIX=/${BRANCH_NAME} npm run build -- --prefix-paths'
+      }
+    }
+    stage('Build - production') {
+      when {
+        branch 'production'
+      }
+      steps {
         sh 'npm run build'
       }
     }
