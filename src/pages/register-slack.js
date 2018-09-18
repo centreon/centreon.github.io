@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import EmailValidator from 'email-validator'
 import classnames from 'classnames'
 import compose from 'recompose/compose'
+import axios from 'axios'
 
 import { withStyles } from '@material-ui/core/styles'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
@@ -96,6 +97,35 @@ class RegisterSlack extends React.Component {
     }
     this.setState({
       sending: true
+    })
+    axios.post(
+      'https://i94v3240k5.execute-api.us-west-2.amazonaws.com/prod/invite',
+      {
+        email: this.state.email
+      }
+    ).then((data) => {
+      const newState = {
+        email: '',
+        sending: false
+      }
+
+      if (!data.ok) {
+        if (data.error === 'already_in_team') {
+          newState.errorMsg = `You've already joined this team! Please log in at https://centreon.slack.com.`
+        } else if (data.error === 'already_invited') {
+          newState.errorMsg = `You're already invited! Please check your email.`
+        } else {
+          newState.email = this.state.email
+          newState.errorMsg = `We have some technical problems. Please retry later.`
+        }
+      }
+
+      this.setState(newState)
+    }).catch((err) => {
+      this.setState({
+        sending: false,
+        errorMsg: `We have some technical problems. Please retry later.`
+      })
     })
   }
 
