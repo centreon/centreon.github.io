@@ -13,7 +13,6 @@ import MuiIconButton from '@material-ui/core/IconButton'
 import MuiDrawer from '@material-ui/core/Drawer'
 import MuiList from '@material-ui/core/List'
 import MuiListItem from '@material-ui/core/ListItem'
-import MuiListItemIcon from '@material-ui/core/ListItemIcon'
 
 import MuiMenuIcon from '@material-ui/icons/Menu'
 import MuiSearchIcon from '@material-ui/icons/Search'
@@ -90,6 +89,9 @@ const styles = theme => ({
     ...theme.typography.body1,
     fontSize: 16,
     paddingLeft: theme.spacing.unit * 4
+  },
+  menuItemSelected: {
+    backgroundColor: theme.palette.grey[300]
   }
 })
 
@@ -210,6 +212,10 @@ class Header extends React.Component {
     })
   }
 
+  isSelected (slug) {
+    return window.location.pathname.match(new RegExp(`/category/${slug}$`)) !== null
+  }
+
   render () {
     const { classes, searchIndex, categories, events } = this.props
 
@@ -277,16 +283,16 @@ class Header extends React.Component {
                   Category
                 </MuiListItem>
                 {categories.map((category) => {
-                  const Icon = require(`../Category/Icon/${category.icon}`)
-
                   return (
                     <MuiListItem
                       key={category.slug}
-                      className={classes.menuItem}
+                      className={classnames(
+                        classes.menuItem,
+                        {[classes.menuItemSelected]: this.isSelected(category.slug)}
+                      )}
                       component={Link}
                       to={`/category/${category.slug}`}
                       button>
-                      <MuiListItemIcon><Icon /></MuiListItemIcon>
                       {category.display}
                     </MuiListItem>
                   )

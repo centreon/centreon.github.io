@@ -144,13 +144,6 @@ class Post extends React.Component {
                 return category
               }).join(', ')}
             </div>
-            {post.frontmatter.cover
-              ? <div className={classes.mobileWrapperImage}>
-                <img
-                  className={classes.modileHeaderImage}
-                  src={post.frontmatter.cover.childImageSharp.resize.src} />
-              </div>
-              : null}
             <MuiTypography variant='headline' className={classnames(
               classes.headerTitle,
               classes.mobileHeaderTitle

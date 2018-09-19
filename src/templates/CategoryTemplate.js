@@ -2,6 +2,7 @@
 import React from 'react'
 
 import MuiTypography from '@material-ui/core/Typography'
+import Hidden from '@material-ui/core/Hidden'
 
 import PostPreview from '../components/Post/Preview'
 
@@ -21,12 +22,22 @@ class CategoryTemplate extends React.Component {
             )
           })
           : <React.Fragment>
-            <MuiTypography variant='display3' gutterBottom>
-              We working to produce soon contents for this category.
-            </MuiTypography>
-            <MuiTypography variant='title'>
-              You can suggest some idea on our <a href='https://centreon.slack.com'>community Slack</a>.
-            </MuiTypography>
+            <Hidden mdDown>
+              <MuiTypography variant='display3' gutterBottom>
+                We working to produce soon contents for this category.
+              </MuiTypography>
+              <MuiTypography variant='title'>
+                You can suggest some idea on our <a href='https://centreon.slack.com'>community Slack</a>.
+              </MuiTypography>
+            </Hidden>
+            <Hidden lgUp>
+              <MuiTypography variant='title' gutterBottom>
+                We working to produce soon contents for this category.
+              </MuiTypography>
+              <MuiTypography variant='caption'>
+                You can suggest some idea on our <a href='https://centreon.slack.com'>community Slack</a>.
+              </MuiTypography>
+            </Hidden>
           </React.Fragment>
         }
       </React.Fragment>
