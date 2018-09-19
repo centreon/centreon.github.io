@@ -1,5 +1,11 @@
 [
   {
+    "slug": "general",
+    "display": "General",
+    "icon": "General",
+    "inMenu": true
+  },
+  {
     "slug": "front",
     "display": "Frontend",
     "icon": "Frontend",

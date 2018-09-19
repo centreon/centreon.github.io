@@ -1,16 +1,16 @@
 ---
-title: Welcome to centreon.github.io
+title: Welcome to our new blog
 author: Centreon R&D Team
 category: ["general"]
 cover: cover-rd.png
-description: Hello ! Welcome to our Blog R&D.
+description: Hello our beloved community ! It's for you ! Through this blog, we would like to let you in on our work backstage...
 ---
 
 ![Our team](rd-team.png)
 
-### Hello ! Welcome to our Blog R&D.
+### Hello our beloved Community !
 
-It's for you ! Our beloved Community !
+It's for you ! 
 
 Through this blog, we would like to let you in on our work backstage as we hope that it will give you a better understanding of what we are currently working on . This is a new chapter for us and we are thrilled to invite you along for the journey and to build a deeper relationship with all of you, our Centreon users.
 
