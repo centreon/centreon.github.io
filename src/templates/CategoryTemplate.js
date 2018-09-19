@@ -1,6 +1,8 @@
 /* global graphql */
 import React from 'react'
 
+import MuiTypography from '@material-ui/core/Typography'
+
 import PostPreview from '../components/Post/Preview'
 
 class CategoryTemplate extends React.Component {
@@ -18,7 +20,14 @@ class CategoryTemplate extends React.Component {
                 key={idx} />
             )
           })
-          : <div>No post</div>
+          : <React.Fragment>
+            <MuiTypography variant='display3' gutterBottom>
+              We working to produce soon contents for this category.
+            </MuiTypography>
+            <MuiTypography variant='title'>
+              You can suggest some idea on our <a href='https://centreon.slack.com'>community Slack</a>.
+            </MuiTypography>
+          </React.Fragment>
         }
       </React.Fragment>
     )

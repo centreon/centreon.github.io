@@ -78,11 +78,6 @@ class Post extends React.Component {
       <CategoryContext.Consumer>
         {categories => (
           <React.Fragment>
-            {post.frontmatter.cover
-              ? <img
-                className={classes.headerImage}
-                src={post.frontmatter.cover.childImageSharp.resize.src} />
-              : null}
             <div className={classes.headerInfo}>
               <div>
                 Published {moment(post.fields.date).format('LL')}

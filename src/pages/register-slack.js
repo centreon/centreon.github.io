@@ -122,6 +122,7 @@ class RegisterSlack extends React.Component {
 
       this.setState(newState)
     }).catch((err) => {
+      console.log(err)
       this.setState({
         sending: false,
         errorMsg: `We have some technical problems. Please retry later.`

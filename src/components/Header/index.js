@@ -20,7 +20,7 @@ import MuiSearchIcon from '@material-ui/icons/Search'
 import MuiArrowBack from '@material-ui/icons/ArrowBack'
 
 import logo from './logo-community.png'
-import joinus from './we_hiring.png'
+import rdTeam from './rd-team.png'
 
 import SearchBar from '../SearchBar'
 import Calendar from '../Calendar'
@@ -63,7 +63,7 @@ const styles = theme => ({
   },
   joinus: {
     height: 300,
-    borderRadius: '300px/150px'
+    borderRadius: '300px/200px'
   },
   mobileBar: {
     position: 'relative',
@@ -244,7 +244,7 @@ class Header extends React.Component {
                     <Calendar events={events} />
                     <a href='https://www.centreon.com/en/community/'>
                       <img
-                        src={joinus}
+                        src={rdTeam}
                         alt='Join the Centreon Community'
                         className={classes.joinus} />
                     </a>

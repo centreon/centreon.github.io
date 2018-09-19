@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import EmailValidator from 'email-validator'
 import Link from 'gatsby-link'
 import axios from 'axios'
+import { detect } from 'detect-browser'
 
 import { withStyles } from '@material-ui/core/styles'
 import MuiTextField from '@material-ui/core/TextField'
@@ -23,8 +24,8 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    width: 'fit-content',
-    height: 'fit-content',
+    minWidth: 34,
+    minHeight: 34,
     padding: theme.spacing.unit,
     backgroundColor: '#56B68B',
     color: '#fff',
@@ -144,8 +145,22 @@ class Slack extends React.Component {
         fontStyle: 'normal'
       })
       state.width = sizeText.width.value + nextProps.theme.spacing.unit * 2
+      const sizeFormText = measureText({
+        text: 'I accept to respect the code of conduct',
+        fontFamily: nextProps.theme.typography.caption.fontFamily,
+        fontWeight: nextProps.theme.typography.caption.fontWeight,
+        fontSize: nextProps.theme.typography.caption.fontSize,
+        lineHeight: `${baseSize}px`,
+        fontStyle: 'normal'
+      })
+      state.widthForm = sizeFormText.width.value + 50
+      const browser = detect()
+      if (browser.name === 'edge' || browser.name === 'safari') {
+        state.widthForm = 250
+      }
     } else {
       state.width = 300
+      state.widthForm = 250
     }
 
     return state
@@ -241,6 +256,7 @@ class Slack extends React.Component {
 
       this.setState(newState)
     }).catch((err) => {
+      console.log(err)
       this.setState({
         sending: false,
         errorOpen: true,
@@ -272,7 +288,9 @@ class Slack extends React.Component {
       <div
         className={classnames(
           classes.root,
-          {[className]: className}
+          {
+            [className]: className
+          }
         )}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
@@ -311,9 +329,9 @@ class Slack extends React.Component {
           onSubmit={this.handleSendInvitation}
           className={classes.form}
           style={{
-            marginTop: this.state.open ? theme.spacing.unit / 2 : 0,
-            height: this.state.open ? 58 : 0,
-            width: this.state.open ? 201 : 0
+            marginTop: this.state.open ? theme.spacing.unit : 0,
+            height: this.state.open ? 68 : 0,
+            width: this.state.open ? this.state.widthForm : 0
           }}>
           <div className={classes.formContent}>
             <MuiTextField
