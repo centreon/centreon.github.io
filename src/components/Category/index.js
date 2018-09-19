@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { navigateTo } from 'gatsby-link'
+import classnames from 'classnames'
 
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -21,10 +22,14 @@ const styles = theme => ({
       marginLeft: theme.spacing.unit
     }
   },
+  selected: {
+    backgroundColor: '#0072CE',
+    color: '#fff'
+  },
   text: {
-    marginLeft: theme.spacing.unit,
     fontSize: 12,
-    lineHeight: '24px'
+    lineHeight: '24px',
+    color: 'inherit'
   }
 })
 
@@ -37,17 +42,26 @@ class Category extends React.Component {
   }
 
   handleClick = () => {
-    navigateTo(`/category/${this.props.category.slug}`)
+    if (this.isSelected()) {
+      navigateTo('/')
+    } else {
+      navigateTo(`/category/${this.props.category.slug}`)
+    }
+  }
+
+  isSelected () {
+    return window.location.pathname.match(new RegExp(`/category/${this.props.category.slug}$`)) !== null
   }
 
   render () {
     const { classes, category } = this.props
 
-    const Icon = require(`./Icon/${category.icon}`)
-
     return (
-      <div className={classes.root} onClick={this.handleClick}>
-        <Icon />
+      <div
+        className={classnames(
+          classes.root,
+          {[classes.selected]: this.isSelected()}
+        )} onClick={this.handleClick}>
         <Typography variant='button' className={classes.text}>
           {category.display}
         </Typography>
