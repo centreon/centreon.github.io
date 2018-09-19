@@ -213,7 +213,10 @@ class Header extends React.Component {
   }
 
   isSelected (slug) {
-    return window.location.pathname.match(new RegExp(`/category/${slug}$`)) !== null
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.match(new RegExp(`/category/${slug}$`)) !== null
+    }
+    return false
   }
 
   render () {
