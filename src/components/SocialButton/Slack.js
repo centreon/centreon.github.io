@@ -6,7 +6,7 @@ import Link from 'gatsby-link'
 import axios from 'axios'
 
 import { withStyles } from '@material-ui/core/styles'
-import MuiTextField from '@material-ui/core/Textfield'
+import MuiTextField from '@material-ui/core/TextField'
 import MuiButton from '@material-ui/core/Button'
 import MuiTypography from '@material-ui/core/Typography'
 import MuiCheckbox from '@material-ui/core/Checkbox'
