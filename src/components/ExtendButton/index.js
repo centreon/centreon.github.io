@@ -13,7 +13,7 @@ if (typeof document !== 'undefined') {
 const styles = theme => ({
   root: {
     display: 'flex',
-    width: 'fit-content',
+    minWidth: 34,
     padding: theme.spacing.unit,
     zIndex: theme.zIndex.drawer
   },
