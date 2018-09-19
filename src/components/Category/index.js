@@ -50,7 +50,10 @@ class Category extends React.Component {
   }
 
   isSelected () {
-    return window.location.pathname.match(new RegExp(`/category/${this.props.category.slug}$`)) !== null
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.match(new RegExp(`/category/${this.props.category.slug}$`)) !== null
+    }
+    return false
   }
 
   render () {
