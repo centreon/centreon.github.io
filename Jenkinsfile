@@ -39,7 +39,8 @@ pipeline {
         changeRequest target: 'production'
       }
       steps {
-        sh 'export GATSBY_PREFIX=/${BRANCH_NAME} npm run build -- --prefix-paths'
+        sh 'sed -i "\$i ,pathPrefix: \'${BRANCH_NAME}\'"'
+        sh 'npm run build -- --prefix-paths'
       }
     }
     stage('Build - production') {
