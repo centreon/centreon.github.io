@@ -16,8 +16,9 @@ pipeline {
         changeRequest target: 'production'
       }
       steps {
-        sh 'apt-get install -y python-pip'
-        sh 'pip install awscli --upgrade --user'
+        sh 'apt-get update'
+        sh 'apt-get install -y python-dev python-pip'
+        sh 'pip install awscli --upgrade'
       }
     }
     stage('Prepare - production') {
