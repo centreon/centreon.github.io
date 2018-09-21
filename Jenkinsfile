@@ -39,8 +39,7 @@ pipeline {
         changeRequest target: 'production'
       }
       steps {
-        sh './addPrefix.sh ${BRANCH_NAME}'
-        sh 'npm run build -- --prefix-paths'
+        sh 'npm run build'
       }
     }
     stage('Build - production') {
@@ -56,7 +55,7 @@ pipeline {
         changeRequest target: 'production'
       }
       steps {
-        sh 'aws s3 sync --no-sign-request --delete --acl public-read public s3://centreon-labs/${BRANCH_NAME}'
+        sh 'aws s3 sync --no-sign-request --delete --acl public-read public s3://centreon-labs/'
       }
     }
     stage('Deploy - production') {
