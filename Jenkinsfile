@@ -63,7 +63,9 @@ pipeline {
         branch 'production'
       }
       steps {
-        sh 'node prod-deploy.js'
+        withCredentials([usernameColonPassword(credentialsId: 'GitHub Organization Scan', variable: 'GHPAGES')]) {
+          sh 'node prod-deploy.js'
+        }
       }
     }
   }
