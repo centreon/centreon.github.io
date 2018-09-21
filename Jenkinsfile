@@ -17,8 +17,7 @@ pipeline {
       }
       steps {
         sh 'apt-get update'
-        sh 'apt-get install -y python-dev python-pip'
-        sh 'pip install awscli --upgrade'
+        sh 'apt-get install -y awscli'
       }
     }
     stage('Prepare - production') {
@@ -55,7 +54,7 @@ pipeline {
         changeRequest target: 'production'
       }
       steps {
-        sh 'aws s3 sync --no-sign-request --delete --acl public-read public s3://centreon-labs/'
+        sh 'aws s3 sync --delete --acl public-read public s3://centreon-labs/'
       }
     }
     stage('Deploy - production') {
