@@ -26,6 +26,7 @@ pipeline {
       }
       steps {
         sh 'npm install -g gh-pages'
+        sh 'npm install gh-pages'
       }
     }
     stage('Build') {
