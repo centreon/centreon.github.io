@@ -62,7 +62,7 @@ pipeline {
         branch 'production'
       }
       steps {
-        sh "gh-pages -d public --user \\'Centreon Bot <rd@centreon.com>\\'"
+        sh 'node prod-deploy.js'
       }
     }
   }
