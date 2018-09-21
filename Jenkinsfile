@@ -39,7 +39,7 @@ pipeline {
         changeRequest target: 'production'
       }
       steps {
-        sh "sed -i '\\$i ,pathPrefix: \'${BRANCH_NAME}\' gatsby-config.js"
+        sh './addPrefix.sh'
         sh 'npm run build -- --prefix-paths'
       }
     }
