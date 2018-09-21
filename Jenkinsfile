@@ -62,7 +62,7 @@ pipeline {
         branch 'production'
       }
       steps {
-        sh 'echo MEP'
+        sh 'gh-pages -d public'
       }
     }
   }
