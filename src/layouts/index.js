@@ -91,6 +91,7 @@ class Layout extends React.Component {
         <CssBaseline />
         <Helmet title={data.site.siteMetadata.title}>
           <html lang='en' />
+          <link rel='icon' type='image/png' href='favicon.png' />
         </Helmet>
         <div className={classes.root}>
           <Header

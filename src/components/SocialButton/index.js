@@ -10,7 +10,6 @@ import MuiListItemIcon from '@material-ui/core/ListItemIcon'
 import WebIcon from '@material-ui/icons/Web'
 
 import ExtendButton from '../ExtendButton'
-import Slack from './Slack'
 import TwitterIcon from './Network/Twitter'
 import GithubIcon from './Network/Github'
 import LinkedinIcon from './Network/Linkedin'
@@ -104,16 +103,19 @@ class SocialButton extends React.Component {
           }}
           link='https://www.centreon.com/en/'
           />
-        <Slack
+        <ExtendButton
           className={classes.base}
           size={size}
+          icon={SlackIcon}
+          color='#56B68B'
           text='centreon'
           openSide='left'
+          textColor='#fff'
           style={{
             top: this.props.top + (theme.spacing.unit + size) * 4,
             right: this.props.right
           }}
-          link='https://centreon.slack.com/'
+          link='/register-slack'
           />
       </React.Fragment>
     )
