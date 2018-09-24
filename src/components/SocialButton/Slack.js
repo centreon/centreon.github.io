@@ -120,7 +120,8 @@ class Slack extends React.Component {
     sending: false,
     errorOpen: false,
     errorMsg: '',
-    emailInError: false
+    emailInError: false,
+    sentOpen: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -258,6 +259,8 @@ class Slack extends React.Component {
           newState.email = this.state.email
           newState.errorMsg = `We have some technical problems. Please retry later.`
         }
+      } else {
+        newState.sentOpen = true
       }
 
       this.setState(newState)
@@ -274,6 +277,12 @@ class Slack extends React.Component {
   handleErrorClose = () => {
     this.setState({
       errorOpen: false
+    })
+  }
+
+  handleSentClose = () => {
+    this.setState({
+      sentOpen: false
     })
   }
 
@@ -400,6 +409,14 @@ class Slack extends React.Component {
           onClose={this.handleErrorClose}
           message={this.state.errorMsg}
           />
+        <MuiSnackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right'
+          }}
+          open={this.state.sentOpen}
+          onClose={this.handleSentClose}
+          message='Now check your email!' />
       </div>
     )
   }

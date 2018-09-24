@@ -59,6 +59,10 @@ const styles = theme => ({
     ...theme.typography.body1,
     color: theme.palette.error.main,
     marginBottom: theme.spacing.unit
+  },
+  sent: {
+    ...theme.typography.body1,
+    marginBottom: theme.spacing.unit
   }
 })
 
@@ -67,14 +71,16 @@ class RegisterSlack extends React.Component {
     email: '',
     validated: false,
     errorMsg: '',
-    emailInError: false
+    emailInError: false,
+    emailSent: false
   }
 
   handleChangeEmail = (event) => {
     this.setState({
       email: event.target.value,
-      error: '',
-      emailInError: false
+      errorMsg: '',
+      emailInError: false,
+      emailSent: false
     })
   }
 
@@ -90,8 +96,7 @@ class RegisterSlack extends React.Component {
     }
     if (!this.state.validaded) {
       this.setState({
-        errorMsg: 'The code of conduct must be read and validate.',
-        errorOpen: true
+        errorMsg: 'The code of conduct must be read and validate.'
       })
       return
     }
@@ -124,6 +129,8 @@ class RegisterSlack extends React.Component {
           newState.email = this.state.email
           newState.errorMsg = `We have some technical problems. Please retry later.`
         }
+      } else {
+        newState.emailSent = true
       }
 
       this.setState(newState)
@@ -139,7 +146,8 @@ class RegisterSlack extends React.Component {
   handleChangeValid = (event) => {
     this.setState({
       errorMsg: '',
-      validaded: event.target.checked
+      validaded: event.target.checked,
+      emailSent: false
     })
   }
 
@@ -190,6 +198,8 @@ class RegisterSlack extends React.Component {
         </div>
         {this.state.errorMsg &&
           <div className={classes.error}>{this.state.errorMsg}</div>}
+        {this.state.emailSent &&
+          <div className={classes.sent}>Now check your email!</div>}
         <MuiButton
           disabled={this.state.sending}
           type='submit'
