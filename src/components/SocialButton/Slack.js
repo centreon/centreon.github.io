@@ -236,12 +236,18 @@ class Slack extends React.Component {
       {
         email: this.state.email
       }
-    ).then((data) => {
+    ).then((res) => {
       const newState = {
         email: '',
         sending: false
       }
 
+      let data
+      if (typeof res.data === 'string' || res.data instanceof String) {
+        data = JSON.parse(res.data)
+      } else {
+        data = res.data
+      }
       if (!data.ok) {
         newState.errorOpen = true
         if (data.error === 'already_in_team') {

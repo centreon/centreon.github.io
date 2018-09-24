@@ -103,12 +103,18 @@ class RegisterSlack extends React.Component {
       {
         email: this.state.email
       }
-    ).then((data) => {
+    ).then((res) => {
       const newState = {
         email: '',
         sending: false
       }
 
+      let data
+      if (typeof res.data === 'string' || res.data instanceof String) {
+        data = JSON.parse(res.data)
+      } else {
+        data = res.data
+      }
       if (!data.ok) {
         if (data.error === 'already_in_team') {
           newState.errorMsg = `You've already joined this team! Please log in at https://centreon.slack.com.`
