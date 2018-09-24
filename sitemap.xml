@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://centreon.github.io/post/2018-09-15-welcome/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/category/general</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/category/front</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/category/storage</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/category/not-visible</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/category/empty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/events/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/register-slack/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://centreon.github.io/slack-code-of-conduct/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
