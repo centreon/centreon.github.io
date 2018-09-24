@@ -9,6 +9,7 @@ ghpages.publish(
       name: 'Centreon Bot',
       email: 'rd@centreon.com'
     },
+    branch: 'master',
     repo: `https://${cred}@github.com/centreon/centreon.github.io.git`
   },
   (err) => {
