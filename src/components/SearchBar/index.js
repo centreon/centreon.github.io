@@ -34,7 +34,8 @@ const styles = theme => ({
     borderColor: theme.palette.grey[400],
     borderRadius: `${theme.shape.borderRadius}px`,
     borderStyle: 'solid',
-    padding: theme.spacing.unit / 2
+    padding: theme.spacing.unit / 2,
+    backgroundColor: '#fff'
   },
   result: {
     position: 'absolute',

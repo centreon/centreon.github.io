@@ -88,9 +88,9 @@ class Footer extends React.Component {
         <a
           className={classes.link}
           rel='carreer'
-          href='https://www.centreon.com/en/carreer/'>
+          href='https://www.centreon.com/en/company/career/'>
           <MuiTypography variant='body2' color='inherit'>
-            Carreer
+            Career
           </MuiTypography>
         </a>
       </footer>

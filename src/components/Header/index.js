@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Link, { withPrefix } from 'gatsby-link'
-import { Motion, spring } from 'react-motion'
 
 import { withStyles } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
@@ -13,16 +12,15 @@ import MuiIconButton from '@material-ui/core/IconButton'
 import MuiDrawer from '@material-ui/core/Drawer'
 import MuiList from '@material-ui/core/List'
 import MuiListItem from '@material-ui/core/ListItem'
+import MuiTypography from '@material-ui/core/Typography'
 
 import MuiMenuIcon from '@material-ui/icons/Menu'
 import MuiSearchIcon from '@material-ui/icons/Search'
 import MuiArrowBack from '@material-ui/icons/ArrowBack'
 
 import logo from './logo-community.png'
-import rdTeam from './rd-team.png'
 
 import SearchBar from '../SearchBar'
-import Calendar from '../Calendar'
 import Category from '../Category'
 import SocialButton from '../SocialButton'
 
@@ -39,15 +37,37 @@ const styles = theme => ({
   },
   block: {
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: 'row'
   },
   desktop: {
     width: 1280,
     alignSelf: 'center'
   },
   title: {
-    justifyContent: 'space-around'
+    display: 'flex',
+    flexDirection: 'row',
+    height: 300
+  },
+  titleText: {
+    backgroundColor: '#0071ce',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: theme.spacing.unit * 3,
+    textDecoration: 'none',
+    cursor: 'pointer'
+  },
+  titleImg: {
+    flexGrow: 1,
+    backgroundImage: `url(/centreon_labs_banner.png)`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'top left',
+    padding: theme.spacing.unit * 4,
+    display: 'flex',
+    justifyContent: 'flex-end'
   },
   extra: {
     overflow: 'hidden'
@@ -220,48 +240,36 @@ class Header extends React.Component {
   }
 
   render () {
-    const { classes, searchIndex, categories, events } = this.props
+    const { classes, searchIndex, categories } = this.props
 
     return (
       <header className={classes.root} ref={this.header}>
         <Hidden mdDown>
-          <div className={classnames(
-            classes.block,
-            classes.desktop,
-            classes.title
-          )}>
-            <Link to='/'>
-              <img
-                src={logo}
-                alt='CentreonLabs' />
+          <div
+            className={classnames(
+              classes.block,
+              classes.title
+            )}>
+            <Link to='/' className={classes.titleText}>
+              <MuiTypography
+                variant='display1'
+                color='inherit'
+                style={{
+                  fontWeight: 700
+                }}
+                gutterBottom>
+                CENTREON LABS
+              </MuiTypography>
+              <MuiTypography
+                variant='headline'
+                color='inherit'>
+                Discover the backstage of our R&D Team
+              </MuiTypography>
             </Link>
-            <SearchBar searchIndex={searchIndex} />
+            <div className={classes.titleImg}>
+              <SearchBar searchIndex={searchIndex} />
+            </div>
           </div>
-          {this.props.extra
-            ? <Motion
-              style={{height: spring(this.state.extraHidden
-                ? 0
-                : Header.extraHeight)}}>
-              {(style) => {
-                return (
-                  <div style={style} className={classnames(
-                    classes.block,
-                    classes.desktop,
-                    classes.title,
-                    classes.extra
-                  )}>
-                    <Calendar events={events} />
-                    <a href='https://www.centreon.com/en/community/'>
-                      <img
-                        src={rdTeam}
-                        alt='Join the Centreon Community'
-                        className={classes.joinus} />
-                    </a>
-                  </div>
-                )
-              }}
-            </Motion>
-            : null}
           <Divider />
           <div className={classnames(
             classes.block,

@@ -126,8 +126,8 @@ class Layout extends React.Component {
             <Hidden mdDown>
               <Motion style={{
                 marginTop: spring(this.state.headerClose
-                  ? 149 + theme.spacing.unit * 4
-                  : 481 + theme.spacing.unit * 4)
+                  ? 330 + theme.spacing.unit * 4
+                  : 330 + theme.spacing.unit * 4)
               }}>
                 {(style) => (
                   <React.Fragment>
