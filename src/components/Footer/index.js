@@ -65,15 +65,6 @@ class Footer extends React.Component {
           className={classes.divider}>
           -
         </MuiTypography>
-        <MuiTypography variant='body2' color='inherit'>
-          Legal notice
-        </MuiTypography>
-        <MuiTypography
-          variant='body2'
-          color='inherit'
-          className={classes.divider}>
-          -
-        </MuiTypography>
         <Link to='/slack-code-of-conduct' className={classes.link}>
           <MuiTypography variant='body2' color='inherit'>
             Slack code of conduct
