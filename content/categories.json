@@ -6,16 +6,22 @@
     "inMenu": true
   },
   {
+    "slug": "beta",
+    "display": "Beta",
+    "icon": "beta",
+    "inMenu": true
+  },
+  {
     "slug": "front",
     "display": "Frontend",
     "icon": "Frontend",
-    "inMenu": true
+    "inMenu": false
   },
   {
     "slug": "storage",
     "display": "Storage",
     "icon": "Storage",
-    "inMenu": true
+    "inMenu": false
   },
   {
     "slug": "not-visible",
