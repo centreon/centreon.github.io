@@ -37,8 +37,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-99d4f9ea3c67705dfa47.js",
-      "component---src-layouts-index-js-99d4f9ea3c67705dfa47.js.map"
+      "component---src-layouts-index-js-c9ef8f6cfbdb7871c6cb.js",
+      "component---src-layouts-index-js-c9ef8f6cfbdb7871c6cb.js.map"
     ],
     "path---category-not-visible": [
       "path---category-not-visible-a072a98495e72b81c687.js",
@@ -81,9 +81,9 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-dfd5ab9254cbbb30dc85.js",
+      "app-69d5f0f828c0c6eed653.js",
       "build-js-styles.css",
-      "app-dfd5ab9254cbbb30dc85.js.map",
+      "app-69d5f0f828c0c6eed653.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-events-js": [
