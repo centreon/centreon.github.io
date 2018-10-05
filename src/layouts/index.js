@@ -1,23 +1,18 @@
 /* global graphql */
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
 import Helmet from 'react-helmet'
 import { Motion, spring } from 'react-motion'
 
-import {
-  MuiThemeProvider,
-  withStyles
-} from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { withStyles } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
 
 import 'typeface-roboto'
 
 import 'prismjs/themes/prism-solarizedlight.css'
 
-import getPageContext from '../getPageContext'
 import CategoryContext from '../context/Category'
 import Header from '../components/Header'
 import SocialButton from '../components/SocialButton'
@@ -60,20 +55,6 @@ class Layout extends React.Component {
     headerClose: false
   }
 
-  constructor (props) {
-    super(props)
-
-    this.pageContext = this.props.pageContext || getPageContext()
-  }
-
-  componentDidMount () {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#server-side-jss')
-    if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles)
-    }
-  }
-
   handleChangeHeaderHeight = (close) => {
     this.setState({
       headerClose: close
@@ -81,14 +62,10 @@ class Layout extends React.Component {
   }
 
   render () {
-    const { data, classes, children } = this.props
-    const { theme, sheetsManager } = this.pageContext
+    const { data, classes, children, theme } = this.props
 
     return (
-      <MuiThemeProvider
-        theme={theme}
-        sheetsManager={sheetsManager}>
-        <CssBaseline />
+      <Fragment>
         <Helmet title={data.site.siteMetadata.title}>
           <html lang='en' />
           <link rel='icon' type='image/png' href='favicon.png' />
@@ -154,12 +131,12 @@ class Layout extends React.Component {
           <div className={classes.flex} />
           <Footer />
         </div>
-      </MuiThemeProvider>
+      </Fragment>
     )
   }
 }
 
-export default withStyles(styles)(Layout)
+export default withStyles(styles, { withTheme: true })(Layout)
 
 export const query = graphql`
 query SiteTitleQuery {
