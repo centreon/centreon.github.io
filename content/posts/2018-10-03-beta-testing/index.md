@@ -41,7 +41,7 @@ First, please go to the channel **\#betatesting** of our [community Slack worksp
 
 Once connected, please notify @TUD or @Adrien that you want to participate in the BTP, they will give you the key to open the door to the wonderful world of Centreon Beta.
 
-*Why is it so complicated?* Because we would like to make sure that you are the *Chosen One*! As you will be the one who are getting involved in the next Centreon version, please do not forget that ***"with great power comes great responsibility"***!
+*Why is it so complicated?* Because we would like to make sure that you are the *Chosen One*! As you will be the one who are getting involved in the next Centreon version, please do not forget that ***"with great power comes great responsibility"***! Indeed we need your feedback about your Centreon usage in <strong>your real environment</strong>.
 
 ### Before you enroll
 
@@ -57,13 +57,13 @@ One last but not least thing before starting, be sure to read carefully, underst
 
 ### OK, but how can I accept the agreement?
 
-It's very easy! The QA team members will give a link to the forms that we created with [Framaforms](https://framaforms.org/). Nothing special here! There is just a form in order to know that you want to get in or get out the program.
+It's very easy! The QA team members will give a link to the forms that we created with [Framaforms](https://framaforms.org/). Nothing special here! There is just a form in order to know that you want to <strong>get in or get out</strong> the program.
 
 
-### Go! Go! Go!
+### Are you ready? Go!
 
 We are waiting for you on the channel **\#betatesting**! Thank you in advance for your help and feedback!
 
 \#monitoringlove
 
-The Centreon R&D Team.
+The Centreon Q&A Team.
