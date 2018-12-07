@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { navigateTo } from 'gatsby-link'
 
-const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-)
+class NotFoundPage extends Component {
+  componentDidMount () {
+    navigateTo('/register-slack')
+  }
+
+  render () {
+    return <div />
+  }
+}
 
 export default NotFoundPage

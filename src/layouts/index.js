@@ -73,33 +73,9 @@ class Layout extends React.Component {
         <div className={classes.root}>
           <Header
             onChangeHeight={this.handleChangeHeaderHeight}
-            searchIndex={data.searchIndex.index}
-            categories={data.categories.edges
-              .filter(({ node }) => {
-                return node.inMenu
-              })
-              .map(({ node }) => {
-                return node
-              })}
-            events={data.events.edges
-              .filter(({ node }) => {
-                const dateCurrent = moment()
-                let dateCompare
-                if (node.dateEnd) {
-                  dateCompare = moment(node.dateEnd)
-                } else {
-                  dateCompare = moment(node.dateStart)
-                }
-
-                return dateCompare.isSameOrAfter(dateCurrent, 'day')
-              })
-              .map(({ node }) => {
-                return node
-              })} />
-          <CategoryContext.Provider value={data.categories.edges
-                .map(({ node }) => {
-                  return node
-                })}>
+            categories={[]}
+            events={[]} />
+          <CategoryContext.Provider value={[]}>
             <Hidden mdDown>
               <Motion style={{
                 marginTop: spring(this.state.headerClose
@@ -143,34 +119,6 @@ query SiteTitleQuery {
   site {
     siteMetadata {
       title
-    }
-  }
-  searchIndex: siteSearchIndex {
-    index
-  }
-  categories: allCategoriesJson {
-    edges {
-      node {
-        slug
-        display
-        icon
-        inMenu
-      }
-    }
-  }
-  events: allCalendarJson(
-    sort: { fields: [fields___date], order: ASC}
-  ) {
-    edges {
-      node {
-        fields {
-          date
-          slug
-        }
-        title
-        dateStart
-        desc
-      }
     }
   }
 }
