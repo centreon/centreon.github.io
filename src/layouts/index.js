@@ -1,7 +1,6 @@
 /* global graphql */
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 
 import Helmet from 'react-helmet'
 import { Motion, spring } from 'react-motion'
@@ -14,7 +13,6 @@ import 'typeface-roboto'
 import 'prismjs/themes/prism-solarizedlight.css'
 
 import CategoryContext from '../context/Category'
-import Header from '../components/Header'
 import SocialButton from '../components/SocialButton'
 import Footer from '../components/Footer'
 
@@ -71,10 +69,6 @@ class Layout extends React.Component {
           <link rel='icon' type='image/png' href='favicon.png' />
         </Helmet>
         <div className={classes.root}>
-          <Header
-            onChangeHeight={this.handleChangeHeaderHeight}
-            categories={[]}
-            events={[]} />
           <CategoryContext.Provider value={[]}>
             <Hidden mdDown>
               <Motion style={{
