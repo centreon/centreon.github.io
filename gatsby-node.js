@@ -1,4 +1,4 @@
-const path = require('path')
+/* const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
@@ -97,4 +97,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       })
     })
   })
-}
+} */

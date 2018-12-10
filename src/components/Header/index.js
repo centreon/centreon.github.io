@@ -15,13 +15,10 @@ import MuiListItem from '@material-ui/core/ListItem'
 import MuiTypography from '@material-ui/core/Typography'
 
 import MuiMenuIcon from '@material-ui/icons/Menu'
-import MuiSearchIcon from '@material-ui/icons/Search'
 import MuiArrowBack from '@material-ui/icons/ArrowBack'
 
 import logo from './logo-community.png'
 
-import SearchBar from '../SearchBar'
-import Category from '../Category'
 import SocialButton from '../SocialButton'
 
 const styles = theme => ({
@@ -122,7 +119,7 @@ class Header extends React.Component {
     /* CSS classes */
     classes: PropTypes.object.isRequired,
     /* The search index engine */
-    searchIndex: PropTypes.object.isRequired,
+    searchIndex: PropTypes.object,
     /* If display extra information */
     extra: PropTypes.bool.isRequired,
     /* The list of categories to display */
@@ -240,7 +237,7 @@ class Header extends React.Component {
   }
 
   render () {
-    const { classes, searchIndex, categories } = this.props
+    const { classes } = this.props
 
     return (
       <header className={classes.root} ref={this.header}>
@@ -266,18 +263,7 @@ class Header extends React.Component {
                 Discover the backstage of our R&D Team
               </MuiTypography>
             </Link>
-            <div className={classes.titleImg}>
-              <SearchBar searchIndex={searchIndex} />
-            </div>
-          </div>
-          <Divider />
-          <div className={classnames(
-            classes.block,
-            classes.categories
-          )}>
-            {categories.map((category) => {
-              return <Category key={category.slug} category={category} />
-            })}
+            <div className={classes.titleImg} />
           </div>
           <Divider />
         </Hidden>
@@ -291,59 +277,22 @@ class Header extends React.Component {
               </MuiIconButton>
               <MuiList>
                 <MuiListItem className={classes.menuTitle}>
-                  Category
-                </MuiListItem>
-                {categories.map((category) => {
-                  return (
-                    <MuiListItem
-                      key={category.slug}
-                      className={classnames(
-                        classes.menuItem,
-                        {[classes.menuItemSelected]: this.isSelected(category.slug)}
-                      )}
-                      component={Link}
-                      to={`/category/${category.slug}`}
-                      button>
-                      {category.display}
-                    </MuiListItem>
-                  )
-                })}
-                <MuiListItem className={classes.menuTitle}>
                   Social Network
                 </MuiListItem>
                 <SocialButton itemClass={classes.menuItem} />
-                <MuiListItem
-                  className={classes.menuTitle}
-                  component={Link}
-                  to='/events'
-                  button
-                  >
-                  Events
-                </MuiListItem>
               </MuiList>
             </div>
           </MuiDrawer>
           <div className={classes.mobileBar}>
-
-            {this.state.searchOpen
-              ? <SearchBar
-                searchIndex={searchIndex}
-                onSearchClose={this.handleCloseSearch} />
-              : <React.Fragment>
-                <MuiIconButton onClick={this.toggleMenu}>
-                  <MuiMenuIcon />
-                </MuiIconButton>
-                <Link to='/' className={classes.mobileLogo}>
-                  <img
-                    className={classes.mobileImage}
-                    src={logo}
-                    alt='CentreonLabs' />
-                </Link>
-                <MuiIconButton onClick={this.handleOpenSearch}>
-                  <MuiSearchIcon />
-                </MuiIconButton>
-              </React.Fragment>
-            }
+            <MuiIconButton onClick={this.toggleMenu}>
+              <MuiMenuIcon />
+            </MuiIconButton>
+            <Link to='/' className={classes.mobileLogo}>
+              <img
+                className={classes.mobileImage}
+                src={logo}
+                alt='CentreonLabs' />
+            </Link>
           </div>
         </Hidden>
       </header>

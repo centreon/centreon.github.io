@@ -1,7 +1,6 @@
 /* global graphql */
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 
 import Helmet from 'react-helmet'
 import { Motion, spring } from 'react-motion'
@@ -14,7 +13,6 @@ import 'typeface-roboto'
 import 'prismjs/themes/prism-solarizedlight.css'
 
 import CategoryContext from '../context/Category'
-import Header from '../components/Header'
 import SocialButton from '../components/SocialButton'
 import Footer from '../components/Footer'
 
@@ -71,35 +69,7 @@ class Layout extends React.Component {
           <link rel='icon' type='image/png' href='favicon.png' />
         </Helmet>
         <div className={classes.root}>
-          <Header
-            onChangeHeight={this.handleChangeHeaderHeight}
-            searchIndex={data.searchIndex.index}
-            categories={data.categories.edges
-              .filter(({ node }) => {
-                return node.inMenu
-              })
-              .map(({ node }) => {
-                return node
-              })}
-            events={data.events.edges
-              .filter(({ node }) => {
-                const dateCurrent = moment()
-                let dateCompare
-                if (node.dateEnd) {
-                  dateCompare = moment(node.dateEnd)
-                } else {
-                  dateCompare = moment(node.dateStart)
-                }
-
-                return dateCompare.isSameOrAfter(dateCurrent, 'day')
-              })
-              .map(({ node }) => {
-                return node
-              })} />
-          <CategoryContext.Provider value={data.categories.edges
-                .map(({ node }) => {
-                  return node
-                })}>
+          <CategoryContext.Provider value={[]}>
             <Hidden mdDown>
               <Motion style={{
                 marginTop: spring(this.state.headerClose
@@ -143,34 +113,6 @@ query SiteTitleQuery {
   site {
     siteMetadata {
       title
-    }
-  }
-  searchIndex: siteSearchIndex {
-    index
-  }
-  categories: allCategoriesJson {
-    edges {
-      node {
-        slug
-        display
-        icon
-        inMenu
-      }
-    }
-  }
-  events: allCalendarJson(
-    sort: { fields: [fields___date], order: ASC}
-  ) {
-    edges {
-      node {
-        fields {
-          date
-          slug
-        }
-        title
-        dateStart
-        desc
-      }
     }
   }
 }
