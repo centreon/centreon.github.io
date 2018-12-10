@@ -1,114 +1,66 @@
 {
   "assetsByChunkName": {
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-dbd7dbfcdce9e949136e.js",
-      "component---src-pages-index-js-dbd7dbfcdce9e949136e.js.map"
-    ],
-    "path---events": [
-      "path---events-76c9e191c94023afb810.js",
-      "path---events-76c9e191c94023afb810.js.map"
+      "component---src-pages-index-js-7e8150a47548a4d0541f.js",
+      "component---src-pages-index-js-7e8150a47548a4d0541f.js.map"
     ],
     "component---src-pages-slack-code-of-conduct-js": [
-      "component---src-pages-slack-code-of-conduct-js-f2dd237fec9ce84d7ec8.js",
-      "component---src-pages-slack-code-of-conduct-js-f2dd237fec9ce84d7ec8.js.map"
+      "component---src-pages-slack-code-of-conduct-js-bc483226b1d08e0ef114.js",
+      "component---src-pages-slack-code-of-conduct-js-bc483226b1d08e0ef114.js.map"
     ],
     "path---": [
-      "path----79cc47fa20c97a0dc4dc.js",
-      "path----79cc47fa20c97a0dc4dc.js.map"
+      "path----8c02087e1b6b3921cbaa.js",
+      "path----8c02087e1b6b3921cbaa.js.map"
     ],
     "path---register-slack": [
       "path---register-slack-a0e39f21c11f6a62c5ab.js",
       "path---register-slack-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-register-slack-js": [
-      "component---src-pages-register-slack-js-1b570ff7b417d6095060.js",
-      "component---src-pages-register-slack-js-1b570ff7b417d6095060.js.map"
-    ],
-    "component---src-templates-category-template-js": [
-      "component---src-templates-category-template-js-036392272f8045a07800.js",
-      "component---src-templates-category-template-js-036392272f8045a07800.js.map"
-    ],
-    "path---category-general": [
-      "path---category-general-ec9197372111d7f6b319.js",
-      "path---category-general-ec9197372111d7f6b319.js.map"
+      "component---src-pages-register-slack-js-6078733202f753f46fc2.js",
+      "component---src-pages-register-slack-js-6078733202f753f46fc2.js.map"
     ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-c9ef8f6cfbdb7871c6cb.js",
-      "component---src-layouts-index-js-c9ef8f6cfbdb7871c6cb.js.map"
-    ],
-    "path---category-not-visible": [
-      "path---category-not-visible-a072a98495e72b81c687.js",
-      "path---category-not-visible-a072a98495e72b81c687.js.map"
-    ],
-    "path---category-beta": [
-      "path---category-beta-505512f91beea3017de9.js",
-      "path---category-beta-505512f91beea3017de9.js.map"
+      "component---src-layouts-index-js-1f3598f32b409ca73161.js",
+      "component---src-layouts-index-js-1f3598f32b409ca73161.js.map"
     ],
     "path---index": [
-      "path---index-2815e33db6e42e79332c.js",
-      "path---index-2815e33db6e42e79332c.js.map"
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-404-js": [
-      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
-      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+      "component---src-pages-404-js-be8e9315a3f1be5c3901.js",
+      "component---src-pages-404-js-be8e9315a3f1be5c3901.js.map"
     ],
     "commons": [
-      "commons-d5c6c67b5f1e328f0f4b.js",
-      "commons-d5c6c67b5f1e328f0f4b.js.map"
+      "commons-d523c8d7edc49a69461f.js",
+      "commons-d523c8d7edc49a69461f.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
-    ],
-    "component---src-templates-post-template-js": [
-      "component---src-templates-post-template-js-582e029b3e8e6ac6ae57.js",
-      "component---src-templates-post-template-js-582e029b3e8e6ac6ae57.js.map"
-    ],
-    "path---category-front": [
-      "path---category-front-644ba4f2c05dbf69f73a.js",
-      "path---category-front-644ba4f2c05dbf69f73a.js.map"
-    ],
-    "path---category-empty": [
-      "path---category-empty-be590b7a8403959ae947.js",
-      "path---category-empty-be590b7a8403959ae947.js.map"
     ],
     "path---offline-plugin-app-shell-fallback": [
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-6dde4d585151338a33b8.js",
+      "app-e84fee38899dba8965e7.js",
       "build-js-styles.css",
-      "app-6dde4d585151338a33b8.js.map",
+      "app-e84fee38899dba8965e7.js.map",
       "build-js-styles.css.map"
-    ],
-    "component---src-pages-events-js": [
-      "component---src-pages-events-js-12f6f6ffbbf7bc5fc3ee.js",
-      "component---src-pages-events-js-12f6f6ffbbf7bc5fc3ee.js.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
-    "path---post-2018-10-03-beta-testing": [
-      "path---post-2018-10-03-beta-testing-34c3a44086279f3add35.js",
-      "path---post-2018-10-03-beta-testing-34c3a44086279f3add35.js.map"
-    ],
     "path---slack-code-of-conduct": [
       "path---slack-code-of-conduct-a0e39f21c11f6a62c5ab.js",
       "path---slack-code-of-conduct-a0e39f21c11f6a62c5ab.js.map"
-    ],
-    "path---category-storage": [
-      "path---category-storage-9abf5431efb4ffd42ce0.js",
-      "path---category-storage-9abf5431efb4ffd42ce0.js.map"
-    ],
-    "path---post-2018-09-15-welcome": [
-      "path---post-2018-09-15-welcome-78894d789e7c765aef32.js",
-      "path---post-2018-09-15-welcome-78894d789e7c765aef32.js.map"
     ]
   }
 }
